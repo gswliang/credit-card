@@ -1,0 +1,33 @@
+.credit-card {
+  width: 400px;
+  height: 200px;
+  background-color: #262836;
+  border-radius: 5px;
+  border: 1px solid #000;
+  padding: 10px 15px;
+  position: relative;
+  color: #ff33a5;
+}
+
+.credit-card__type {
+  position: absolute;
+  right: 15px;
+}
+
+.credit-card__number {
+  margin-top: 95px;
+  letter-spacing: 10px;
+  color: #41f1c7;
+  text-align: center;
+}
+
+.credit-card__name {
+  position: absolute;
+  bottom: 10px;
+}
+
+.credit-card__expiry-date {
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+}
