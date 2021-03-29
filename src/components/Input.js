@@ -2,7 +2,6 @@ import React from "react";
 import "./Input.css";
 
 const Input = ({ number, setNumber }) => {
-  console.log(number);
   return (
     <div className="input__container">
       <label className="input__label">Enter a number:</label>
