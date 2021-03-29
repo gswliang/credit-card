@@ -36,10 +36,7 @@ const CreditCardList = () => {
 
   return (
     <div>
-      <Input number={number} setNumber={setNumber} />
-      <div className="credit-card__warning">
-        {isNum ? "" : "Please enter a value between 1 -1000"}
-      </div>
+      <Input number={number} setNumber={setNumber} isNum={isNum} />
       <div className="credit-card-list">
         {cards.map((card) => (
           <CreditCard key={card.number} type={card} />
