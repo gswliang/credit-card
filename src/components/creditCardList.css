@@ -3,3 +3,9 @@
   flex-wrap: wrap;
   gap: 12px;
 }
+
+.credit-card__warning {
+  margin: 20px;
+  padding: 10px;
+  color: red;
+}

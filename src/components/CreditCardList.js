@@ -7,19 +7,39 @@ import "./creditCardList.css";
 const CreditCardList = () => {
   const [cards, setCards] = useState([]);
   const [number, setNumber] = useState(0);
+  const [debounce, setDebounce] = useState(number);
+  const [isNum, setIsnum] = useState(true);
 
   useEffect(() => {
-    getCreditCards(number)
+    if (0 <= number && number <= 20) {
+      const timerId = setTimeout(() => {
+        setDebounce(number);
+        setIsnum(true);
+      }, 300);
+
+      return () => {
+        clearTimeout(timerId);
+      };
+    } else {
+      setIsnum(!isNum);
+    }
+  }, [number]);
+
+  useEffect(() => {
+    getCreditCards(debounce)
       .then((res) => {
         setCards(res.data.data);
       })
       .catch((e) => {})
       .finally(() => {});
-  }, [number]);
+  }, [debounce]);
 
   return (
     <div>
       <Input number={number} setNumber={setNumber} />
+      <div className="credit-card__warning">
+        {isNum ? "" : "Please enter a value between 1 -1000"}
+      </div>
       <div className="credit-card-list">
         {cards.map((card) => (
           <CreditCard key={card.number} type={card} />
