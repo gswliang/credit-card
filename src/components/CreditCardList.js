@@ -1,26 +1,30 @@
 import React, { useEffect, useState } from "react";
 import { getCreditCards } from "../Api";
 import CreditCard from "./CreditCard";
+import Input from "./Input";
 import "./creditCardList.css";
 
 const CreditCardList = () => {
   const [cards, setCards] = useState([]);
+  const [number, setNumber] = useState(0);
 
   useEffect(() => {
-    getCreditCards(5)
+    getCreditCards(number)
       .then((res) => {
-        //console.log(res.data.data);
         setCards(res.data.data);
       })
       .catch((e) => {})
       .finally(() => {});
-  }, []);
+  }, [number]);
 
   return (
-    <div className="credit-card-list">
-      {cards.map((card) => (
-        <CreditCard key={card.number} type={card} />
-      ))}
+    <div>
+      <Input number={number} setNumber={setNumber} />
+      <div className="credit-card-list">
+        {cards.map((card) => (
+          <CreditCard key={card.number} type={card} />
+        ))}
+      </div>
     </div>
   );
 };
