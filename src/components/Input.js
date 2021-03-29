@@ -13,7 +13,7 @@ const Input = ({ number, setNumber, isNum }) => {
         }}
       />
       <div className="credit-card__warning">
-        {isNum ? "" : "Please enter a value between 1 -1000"}
+        {isNum ? " " : "Please enter a value between 1 - 1000"}
       </div>
     </div>
   );
