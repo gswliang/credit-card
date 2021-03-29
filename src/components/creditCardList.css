@@ -5,7 +5,9 @@
 }
 
 .credit-card__warning {
-  margin: 20px;
+  width: 700px;
+  height: 10px;
+  margin: 5px 20px;
   padding: 10px;
-  color: red;
+  color: #d52b17;
 }
