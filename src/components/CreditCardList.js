@@ -11,7 +11,7 @@ const CreditCardList = () => {
   const [isNum, setIsnum] = useState(true);
 
   useEffect(() => {
-    if (0 <= number && number <= 20) {
+    if (0 <= number && number <= 1000) {
       const timerId = setTimeout(() => {
         setDebounce(number);
         setIsnum(true);
