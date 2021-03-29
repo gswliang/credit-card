@@ -7,6 +7,7 @@ const Input = ({ number, setNumber }) => {
       <label className="input__label">Enter a number:</label>
       <input
         className="input__content"
+        value={number}
         onChange={(e) => {
           setNumber(e.target.value);
         }}
