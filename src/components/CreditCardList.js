@@ -3,36 +3,36 @@ import { getCreditCards } from "../Api";
 import CreditCard from "./CreditCard";
 import Input from "./Input";
 import "./creditCardList.css";
+import useDebounce from "../hooks/useDebounce";
+
+const DEBOUNCE_DELAY = 500;
 
 const CreditCardList = () => {
   const [cards, setCards] = useState([]);
   const [number, setNumber] = useState(0);
-  const [debounce, setDebounce] = useState(number);
-  const [isNum, setIsnum] = useState(true);
+  const [isNum, setIsNum] = useState(true);
+
+  const debounceInput = useDebounce(number, DEBOUNCE_DELAY);
+
+  const isValidInput = (number) => {
+    if (0 <= number && number <= 1000) {
+      return true;
+    }
+    return false;
+  };
 
   useEffect(() => {
-    if (0 <= number && number <= 1000) {
-      const timerId = setTimeout(() => {
-        setDebounce(number);
-        setIsnum(true);
-      }, 300);
-
-      return () => {
-        clearTimeout(timerId);
-      };
-    } else {
-      setIsnum(false);
-    }
+    setIsNum(isValidInput(number));
   }, [number]);
 
   useEffect(() => {
-    getCreditCards(debounce)
+    getCreditCards(debounceInput)
       .then((res) => {
         setCards(res.data.data);
       })
       .catch((e) => {})
       .finally(() => {});
-  }, [debounce]);
+  }, [debounceInput]);
 
   return (
     <div>

@@ -9,12 +9,13 @@ const Input = ({ number, setNumber, isNum }) => {
         className={`input__content ${isNum ? "" : "warning"}`}
         value={number}
         onChange={(e) => {
-          setNumber(e.target.value);
+          if (isNaN(Number(e.target.value))) {
+            return;
+          }
+          setNumber(Number(e.target.value));
         }}
       />
-      <div className="credit-card__warning">
-        {isNum ? " " : "Please enter a value between 1 - 1000"}
-      </div>
+      <div className="credit-card__warning">{isNum ? " " : "Please enter a value between 1 - 1000"}</div>
     </div>
   );
 };
