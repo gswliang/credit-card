@@ -21,7 +21,7 @@ const CreditCardList = () => {
         clearTimeout(timerId);
       };
     } else {
-      setIsnum(!isNum);
+      setIsnum(false);
     }
   }, [number]);
 
