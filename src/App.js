@@ -1,5 +1,5 @@
 import CreditCardList from "./components/CreditCardList";
-import "./app.css";
+import "./App.css";
 
 const App = () => {
   return (

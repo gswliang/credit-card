@@ -15,7 +15,6 @@ const Input = ({ number, setNumber, isNum }) => {
           setNumber(Number(e.target.value));
         }}
       />
-      <div className="credit-card__warning">{isNum ? " " : "Please enter a value between 1 - 1000"}</div>
     </div>
   );
 };
