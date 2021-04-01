@@ -10,7 +10,7 @@ const DEBOUNCE_DELAY = 500;
 
 const CreditCardList = () => {
   const [cards, setCards] = useState([]);
-  const [number, setNumber] = useState(0);
+  const [number, setNumber] = useState(10);
   const [isNum, setIsNum] = useState(true);
   const [cardSelected, setCardSelected] = useState("All");
   const debounceInput = useDebounce(number, DEBOUNCE_DELAY);
